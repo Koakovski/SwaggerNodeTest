@@ -20,7 +20,7 @@
             "post": {
                 "summary": "Cadastro de produto",
                 "description": "Rota responsável por cadastrar um novo produto",
-                "tags": ["product"],
+                "tags": ["Products"],
                 "security": [{ "bearerAuth": [] }],
                 "requestBody": {
                     "content": {
@@ -65,12 +65,42 @@
             "get": {
                 "description": "Busca de um produto pelo nome",
                 "summary": "Busca de um produto pelo nome",
-                "tags": ["product"],
+                "tags": ["Products"],
                 "parameters": [
                     {
                         "name": "name",
                         "in": "query",
                         "description": "Nome do produto",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Product"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/product/{productId}": {
+            "get": {
+                "description": "Busca de um produto pelo productId",
+                "summary": "Busca de um produto pelo productId",
+                "tags": ["Products"],
+                "parameters": [
+                    {
+                        "name": "productId",
+                        "in": "path",
+                        "description": "Id do produto",
                         "required": true
                     }
                 ],
