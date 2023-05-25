@@ -60,6 +60,34 @@
                     }
                 }
             }
+        },
+        "/product/findByName": {
+            "get": {
+                "description": "Busca de um produto pelo nome",
+                "summary": "Busca de um produto pelo nome",
+                "tags": ["product"],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Nome do produto",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "type": "object",
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {

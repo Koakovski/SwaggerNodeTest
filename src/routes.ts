@@ -16,7 +16,9 @@ const products: ProductDTO[] = [];
 
 router.get("/product/findByName", (request, response) => {
     const { name } = request.query;
-    const filteredProducts = products.filter((p) => p.name.includes(String(name)));
+    const filteredProducts = products.filter((p) =>
+        p.name.toLowerCase().includes(String(name).toLowerCase())
+    );
 
     return response.json(filteredProducts);
 });
