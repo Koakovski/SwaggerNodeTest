@@ -50,7 +50,7 @@ router.post("/product", authenticationMiddleware, (request, response) => {
     return response.json(productsData);
 });
 
-router.post("/product/:productId", authenticationMiddleware, (request, response) => {
+router.put("/product/:productId", authenticationMiddleware, (request, response) => {
     const { productId } = request.params;
     const { name, description, price } = request.body;
 
